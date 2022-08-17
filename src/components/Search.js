@@ -23,29 +23,17 @@ const Search = (props) => {
   };
 
   return (
-    <Container>
-      <Box>
-        <Text fontSize={[64, 128]} color="white">
-          ANIME
-        </Text>
-      </Box>
-      <Center>
-        {/* tamaño del width en cada breakpoint */}
-        <Box w={[200, 300, 400, 500, 600, 700]}>
-          <form onSubmit={onSubmitHandler}>
-            <Input
-              placeholder="Search..."
-              size="lg"
-              w="100%"
-              bgColor="secondary"
-              focusBorderColor="highlight"
-              autoFocus
-              onChange={searchOnChangeHandler}
-            />
-          </form>
-        </Box>
-      </Center>
-    </Container>
+    <form onSubmit={onSubmitHandler}>
+      <Input
+        placeholder="Search..."
+        size={props.size}
+        w={props.width}
+        bgColor={props.color}
+        focusBorderColor="highlight"
+        onChange={searchOnChangeHandler}
+        autoFocus
+      />
+    </form>
   );
 };
 

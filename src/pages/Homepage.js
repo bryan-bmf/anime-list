@@ -1,6 +1,7 @@
-import { Center, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex, VStack } from "@chakra-ui/react";
 import Search from "../components/Search";
 import { useState, useEffect } from "react";
+import Title from "../components/Title";
 
 const Homepage = () => {
   const [gif, setGif] = useState("");
@@ -34,9 +35,16 @@ const Homepage = () => {
       bgImage={gif}
       bgSize="cover"
       bgRepeat="no-repeat"
+      bgPosition={'center'}
     >
       <Center>
-        <Search />
+        <VStack>
+          <Title size={[64, 128]} />
+          {/* tamaño del width en cada breakpoint */}
+          <Box w={[200, 300, 400, 500, 600, 700]}>
+            <Search width='100%' size='lg' color="secondary" />
+          </Box>
+        </VStack>
       </Center>
     </Flex>
   );
