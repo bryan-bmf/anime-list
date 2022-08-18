@@ -8,9 +8,9 @@ const Card = (props) => {
 
   return (
     <Box
-    maxWidth='md'
       borderWidth="1px"
       borderRadius="lg"
+      borderColor='highlight'
       overflow="hidden"
       w={[223 * 0.5, 223]}
     >

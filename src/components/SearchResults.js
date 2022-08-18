@@ -9,6 +9,7 @@ const SearchResults = (props) => {
 
   const [searchParams] = useSearchParams();
   let q = searchParams.get("q"); //get search string from url
+  let category = searchParams.get("cat"); 
 
   const fetchAnime = async (q) => {
     const resp = await fetch("https://api.jikan.moe/v4/anime?q=" + q);
@@ -21,9 +22,22 @@ const SearchResults = (props) => {
     setSearchResults(respData.data);
   };
 
+  // le falta trabajo
+  const fetchCharacter = async (q) => {
+    const resp = await fetch("https://api.jikan.moe/v4/character?q=" + q);
+
+    if (!resp.ok) {
+      throw new Error("Algo explotó");
+    }
+
+    const respData = await resp.json();
+    setSearchResults(respData.data);
+  };
+
   useEffect(() => {
     fetchAnime(q);
-  }, []);
+    // fetchCharacter(category);
+  }, [q]);
 
   return (
     <Center>

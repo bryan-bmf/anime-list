@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import SearchResults from "../components/SearchResults";
 
 const ResultsPage = () => {
