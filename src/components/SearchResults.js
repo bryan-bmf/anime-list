@@ -1,16 +1,17 @@
-import { SimpleGrid, Box, Center } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Card from "./Card";
-import Search from "./Search";
 
 const SearchResults = (props) => {
   const [searchResults, setSearchResults] = useState([]);
 
+  //cada vez que hay un search nuevo, los query params se updatean
   const [searchParams] = useSearchParams();
   let q = searchParams.get("q"); //get search string from url
-  let category = searchParams.get("cat"); 
+  let cat = searchParams.get("cat");
 
+  // ver si puedo hacer un hook para reducir estos calls
   const fetchAnime = async (q) => {
     const resp = await fetch("https://api.jikan.moe/v4/anime?q=" + q);
 
@@ -22,9 +23,8 @@ const SearchResults = (props) => {
     setSearchResults(respData.data);
   };
 
-  // le falta trabajo
   const fetchCharacter = async (q) => {
-    const resp = await fetch("https://api.jikan.moe/v4/character?q=" + q);
+    const resp = await fetch("https://api.jikan.moe/v4/characters?q=" + q);
 
     if (!resp.ok) {
       throw new Error("Algo explotó");
@@ -34,28 +34,24 @@ const SearchResults = (props) => {
     setSearchResults(respData.data);
   };
 
+  // called every time q and cat change and gets both anime and characters
+  // it get's them both pq el url hace un replace so ambos search params se updatean 
   useEffect(() => {
-    fetchAnime(q);
-    // fetchCharacter(category);
-  }, [q]);
+    if (cat === "anime") fetchAnime(q);
+    else fetchCharacter(q);
+  }, [q, cat]);
 
-  return (
-    <Center>
-      <SimpleGrid columns={[2, 3, 4, 5]} spacing="40px">
-        {searchResults.map((result) => (
-          <Box>
-            <Card
-              key={result.mal_id}
-              title={result.title}
-              engTitle={result.title_english}
-              characterName={result.name}
-              image={result.images.jpg.image_url}
-            />
-          </Box>
-        ))}
-      </SimpleGrid>
-    </Center>
-  );
+  return searchResults.map((result) => (
+    <Box>
+      <Card
+        key={result.mal_id}
+        title={result.title}
+        engTitle={result.title_english}
+        characterName={result.name}
+        image={result.images.jpg.image_url}
+      />
+    </Box>
+  ));
 };
 
 export default SearchResults;

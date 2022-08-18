@@ -1,21 +1,9 @@
-import {
-  Box,
-  Center,
-  Container,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  Text,
-  Select,
-  HStack,
-} from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 
 const Search = (props) => {
   const [q, setQ] = useState("");
-  // const [category, setCategory] = useState(props.category);
-  //category vendra de los tabs
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -40,7 +28,7 @@ const Search = (props) => {
       });
     } else {
       //replace search params
-      setSearchParams({ q: q, cat: props.category }, { replace: true });
+      setSearchParams({ q: q }, { replace: true });
     }
   };
 

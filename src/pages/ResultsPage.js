@@ -1,12 +1,14 @@
 import { Fragment } from "react";
 import Header from "../components/Header/Header";
-import SearchResults from "../components/SearchResults";
+import TabbedResults from "../components/TabbedResults";
 
 const ResultsPage = () => {
   return (
     <Fragment>
-        <header><Header /></header>
-        <SearchResults />
+      <header>
+        <Header />
+      </header>
+      <TabbedResults />
     </Fragment>
   );
 };

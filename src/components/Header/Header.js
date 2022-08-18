@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, HStack, Spacer } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import Search from "../Search";
 import Title from "../Title";
 
@@ -13,7 +13,7 @@ const Header = () => {
         height="4rem"
         w="100%"
         mb="10"
-        justify='space-between'
+        justify="space-between"
       >
         <Flex>
           <Title align="left" size="32" />
