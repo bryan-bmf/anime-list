@@ -41,7 +41,7 @@ const SearchResults = (props) => {
     else fetchCharacter(q);
   }, [q, cat]);
 
-  return searchResults.map((result) => (
+  let results = searchResults.map((result) => (
     <Box>
       <Card
         key={result.mal_id}
@@ -51,7 +51,13 @@ const SearchResults = (props) => {
         image={result.images.jpg.image_url}
       />
     </Box>
-  ));
+  ))
+
+  let noResults = <Box w=''><h1>No results found.</h1></Box>
+
+  return (
+    searchResults.length > 0 ? results : noResults
+  )
 };
 
 export default SearchResults;
