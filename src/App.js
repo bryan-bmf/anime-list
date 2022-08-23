@@ -11,7 +11,7 @@ function App() {
         <Route path='/' element={<Navigate replace to='/home' />} />
         <Route path='/home' element={<Homepage />} />
         <Route path='/searchResults' element={<ResultsPage />} />
-        <Route path='/anime' element={<AnimePage />} />
+        <Route path='/anime/:id' element={<AnimePage />} />
       </Routes>
     </div>
   );

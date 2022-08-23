@@ -10,11 +10,19 @@ const AnimeSummary = (props) => {
 
   return (
     <Container>
-        <Heading size='lg' mb='2'>Summary</Heading>
-      <Text noOfLines={show ? 0 : 5}>
-        {props.summary}
-      </Text>
-      <Text fontSize="xs" onClick={handleToggle} textAlign='end' mt="1" mb="2" color='blue' textDecoration='underline'>
+      <Heading size="lg" mb="2">
+        Summary
+      </Heading>
+      <Text noOfLines={show ? 0 : 5}>{props.summary}</Text>
+      <Text
+        fontSize="xs"
+        onClick={handleToggle}
+        textAlign="end"
+        mt="1"
+        mb="2"
+        color="blue"
+        textDecoration="underline"
+      >
         <Link>Show {show ? "Less" : "More"}</Link>
       </Text>
     </Container>
