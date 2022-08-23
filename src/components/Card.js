@@ -12,14 +12,14 @@ const Card = (props) => {
       borderRadius="lg"
       borderColor='highlight'
       overflow="hidden"
-      w={[223 * 0.5, 223]}
+      w={props.boxWidth}
     >
-      <Image src={props.image} width="100%" h={[315 * 0.5, 315]} />
+      <Image src={props.image} width="100%" h={props.imageHeight} />
       <Box
         p="1"
         fontWeight="semibold"
         lineHeight="tight"
-        noOfLines={1}
+        noOfLines={props.expandName !== undefined ? 2 : 1}
         width="100%"
         textAlign="center"
         bgColor="secondary"

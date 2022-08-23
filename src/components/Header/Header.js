@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Button, Flex, Link } from "@chakra-ui/react";
 import Search from "../Search";
 import Title from "../Title";
 
@@ -16,7 +16,9 @@ const Header = () => {
         justify="space-between"
       >
         <Flex>
-          <Title align="left" size="32" />
+          <Link href="/home">
+            <Title align="left" size="32" />
+          </Link>
         </Flex>
         <Flex justify="flex-end">
           <Search width="400px" size="md" color="highlight" />

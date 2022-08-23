@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import { Center, Grid, GridItem } from "@chakra-ui/react";
-import AnimeSidebar from "../components/AnimeSidebar";
-import AnimeSummary from "../components/AnimeSummary";
-import { useParams } from "react-router-dom";
-import AnimeCharacters from "../components/AnimeCharacters";
+import AnimeSidebar from "../components/AnimePageComponents/AnimeSidebar";
+import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
+import { useParams } from "react-router-dom"; 
+import AnimeCharacters from "../components/AnimePageComponents/AnimeCharacters";
 
 const AnimePage = () => {
   const [anime, setAnime] = useState([]);
@@ -29,7 +29,8 @@ const AnimePage = () => {
   const getMainCharacters = (chars) => {
     let arr = [];
     chars.map((index) => {
-      if(index.role === "Main") {
+      //limit to 5 main characters
+      if(index.role === "Main" && arr.length < 5) {
         arr.push(index);
       };
     });

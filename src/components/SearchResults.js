@@ -56,13 +56,15 @@ const SearchResults = (props) => {
           engTitle={result.title_english}
           characterName={result.name}
           image={result.images.jpg.image_url}
+          boxWidth={[223 * 0.5, 223]}
+          imageHeight={[315 * 0.5, 315]}
         />
       </Link>
     </Box>
   ));
 
   let noResults = (
-    <Box w="">
+    <Box>
       <h1>No results found.</h1>
     </Box>
   );
