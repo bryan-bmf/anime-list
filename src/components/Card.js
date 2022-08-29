@@ -1,4 +1,4 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 
 const Card = (props) => {
   // Determine if the title is from an anime or a character
@@ -15,17 +15,18 @@ const Card = (props) => {
       w={props.boxWidth}
     >
       <Image src={props.image} width="100%" h={props.imageHeight} />
-      <Box
+      <Flex
         p="1"
         fontWeight="semibold"
         lineHeight="tight"
         noOfLines={props.expandName !== undefined ? 2 : 1}
         width="100%"
-        textAlign="center"
         bgColor="secondary"
+        height={props.expandName !== undefined ? '50px' : 'auto'}
+        justifyContent='center'
       >
         <Text fontSize={["xs", "sm"]}>{title}</Text>
-      </Box>
+      </Flex>
     </Box>
   );
 };

@@ -14,7 +14,7 @@ const SearchResults = (props) => {
   // ver si puedo hacer un hook para reducir estos calls
   const fetchAnime = async () => {
     const resp = await fetch(
-      "https://api.jikan.moe/v4/anime?q=" + q + "&order_by=favorites&sort=desc"
+      "https://api.jikan.moe/v4/anime?q=" + q + "&order_by=favorites&sort=desc&sfw=true"
     );
 
     if (!resp.ok) {

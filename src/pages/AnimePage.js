@@ -5,6 +5,7 @@ import AnimeSidebar from "../components/AnimePageComponents/AnimeSidebar";
 import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
 import { useParams } from "react-router-dom"; 
 import AnimeCharacters from "../components/AnimePageComponents/AnimeCharacters";
+import AnimeVideos from "../components/AnimePageComponents/AnimeVideos";
 
 const AnimePage = () => {
   const [anime, setAnime] = useState([]);
@@ -73,12 +74,13 @@ const AnimePage = () => {
       <Center>
         <Grid
           h="200px"
-          templateRows="repeat(3, 1fr)"
+          templateRows="repeat(4, 1fr)"
           templateColumns="repeat(6, 1fr)"
           gap={4}
+          maxWidth='80em'
         >
           {/* Sidebar */}
-          <GridItem rowSpan={3} colSpan={2} bg="tomato">
+          <GridItem rowSpan={3} colSpan={2} bg="tomato" maxWidth='20em'>  
             <AnimeSidebar anime={anime} />
           </GridItem>
           {/* Summary */}
@@ -89,9 +91,9 @@ const AnimePage = () => {
           <GridItem colSpan={4} bg="tomato">
             <AnimeCharacters characters={characters} />
           </GridItem>
-
+          {/* Videos */}
           <GridItem colSpan={4} bg="tomato">
-            <h1>videos</h1>
+            <AnimeVideos animeTitle={anime.title} />
           </GridItem>
         </Grid>
       </Center>
