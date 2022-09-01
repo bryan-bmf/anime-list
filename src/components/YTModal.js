@@ -5,11 +5,10 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter,
-  Button,
   useDisclosure,
   Link,
   AspectRatio,
+  Circle,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
 
@@ -26,15 +25,14 @@ const YTModal = (props) => {
       <Link onClick={onOpen}>{trigger}</Link>
       <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{props.title}</ModalHeader>
-          <ModalCloseButton />
+        <ModalContent bgColor='transparent' boxShadow='0'  maxW='45em'>
+          <ModalHeader></ModalHeader>
+          <ModalCloseButton bgColor={'cyan'} />
           <ModalBody>
-            <AspectRatio w="530px" h="360px">
+            <AspectRatio w="640px" h="360px">
               <iframe title={props.title} src={props.link} allowFullScreen />
             </AspectRatio>
           </ModalBody>
-          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </Fragment>

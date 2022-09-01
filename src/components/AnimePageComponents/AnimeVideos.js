@@ -1,5 +1,10 @@
-import { Container, Heading, Image, Text, Box } from "@chakra-ui/react";
-import { Fragment, useEffect, useState } from "react";
+import {
+  Container,
+  Heading,
+  Box,
+  SimpleGrid,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import Card from "../Card";
 import YTModal from "../YTModal";
 
@@ -8,7 +13,7 @@ const AnimeVideos = (props) => {
 
   const fetchVideos = async () => {
     const resp = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDkSAq_bDUmT4_XSIFDLsuWIyPdSuZMrlo&part=snippet&q=" +
+      "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDkSAq_bDUmT4_XSIFDLsuWIyPdSuZMrlo&part=snippet&maxResults=6&q=" +
         props.animeTitle
     );
 
@@ -30,8 +35,8 @@ const AnimeVideos = (props) => {
       <Card
         key={video.etag}
         engTitle={video.snippet.title}
-        image={video.snippet.thumbnails.default.url}
-        boxWidth={[223 * 0.5, 223]}
+        image={video.snippet.thumbnails.medium.url}
+        boxWidth={[160 * 0.5, 160]}
         imageHeight={[90 * 0.5, 90]}
         expandName="true"
         link={video.id.videoId}
@@ -56,7 +61,9 @@ const AnimeVideos = (props) => {
       <Heading size="lg" mb="2">
         Videos
       </Heading>
-      {videoThumbs.length > 0 ? modals : "nada"}
+      <SimpleGrid minChildWidth="120px" spacing="40px">
+        {videoThumbs.length > 0 ? modals : "nada"}
+      </SimpleGrid>
     </Container>
   );
 };

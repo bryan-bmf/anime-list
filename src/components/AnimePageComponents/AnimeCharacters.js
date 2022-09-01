@@ -1,5 +1,4 @@
 import { Box, Container, Heading, HStack, Link } from "@chakra-ui/react";
-import { Fragment } from "react";
 import Card from "../Card";
 
 const AnimeCharacters = (props) => {
