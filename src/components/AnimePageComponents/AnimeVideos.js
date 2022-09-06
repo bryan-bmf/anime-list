@@ -3,6 +3,8 @@ import {
   Heading,
   Box,
   SimpleGrid,
+  Spinner,
+  Center,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Card from "../Card";
@@ -56,13 +58,25 @@ const AnimeVideos = (props) => {
     );
   });
 
+  let loading = (
+    <Center>
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+      />
+    </Center>
+  );
+
   return (
     <Container p="4">
       <Heading size="lg" mb="2">
         Videos
       </Heading>
       <SimpleGrid minChildWidth="120px" spacing="40px">
-        {videoThumbs.length > 0 ? modals : "nada"}
+        {videoThumbs.length > 0 ? modals : loading}
       </SimpleGrid>
     </Container>
   );

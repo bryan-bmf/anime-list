@@ -27,7 +27,7 @@ const YTModal = (props) => {
         <ModalOverlay />
         <ModalContent bgColor='transparent' boxShadow='0'  maxW='45em'>
           <ModalHeader></ModalHeader>
-          <ModalCloseButton bgColor={'cyan'} />
+          <ModalCloseButton bgColor={'cyan'} _hover={{ bg: "cyan" }} />
           <ModalBody>
             <AspectRatio w="640px" h="360px">
               <iframe title={props.title} src={props.link} allowFullScreen />

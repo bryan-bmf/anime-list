@@ -1,11 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
 import Header from "../components/Header/Header";
-import { Center, Grid, GridItem } from "@chakra-ui/react";
+import { Center, Grid, GridItem, Spinner } from "@chakra-ui/react";
 import AnimeSidebar from "../components/AnimePageComponents/AnimeSidebar";
 import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
 import { useParams } from "react-router-dom";
 import AnimeCharacters from "../components/AnimePageComponents/AnimeCharacters";
 import AnimeVideos from "../components/AnimePageComponents/AnimeVideos";
+import Footer from "../components/Header/Footer";
 
 const AnimePage = () => {
   const [anime, setAnime] = useState([]);
@@ -62,9 +63,15 @@ const AnimePage = () => {
 
   if (isLoadingAnime || isLoadingChars) {
     return (
-      <section>
-        <p>Loading...</p>
-      </section>
+      <Center>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Center>
     );
   }
 
@@ -107,7 +114,7 @@ const AnimePage = () => {
           </GridItem>
         </Grid>
       </Center>
-      <Header as="footer" />
+      <Footer as="footer" />
     </Fragment>
   );
 };
