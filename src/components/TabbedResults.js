@@ -40,7 +40,7 @@ const TabbedResults = () => {
           <TabPanel>
             <Center>
               <SimpleGrid columns={[2, 3, 4, 5]} spacing="40px">
-                <SearchResults />
+                <SearchResults tab='anime' />
               </SimpleGrid>
             </Center>
           </TabPanel>
@@ -49,7 +49,7 @@ const TabbedResults = () => {
           <TabPanel>
             <Center>
               <SimpleGrid columns={[2, 3, 4, 5]} spacing="40px">
-                <SearchResults />
+                <SearchResults tab='characters' />
               </SimpleGrid>
             </Center>
           </TabPanel>
