@@ -40,7 +40,15 @@ const Search = (props) => {
         size={props.size}
         bgColor={props.color}
         borderColor="highlight"
+        borderWidth="2px"
         focusBorderColor="highlight"
+        _focusVisible={{
+          outline: "none",
+          borderColor: "highlight"
+        }}
+        _hover={{
+          borderColor: "highlight"
+        }}
         onChange={searchOnChangeHandler}
         borderLeftRadius={props.borderRadius}
         borderLeft={props.border}

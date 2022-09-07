@@ -13,6 +13,7 @@ import YTModal from "../YTModal";
 const AnimeVideos = (props) => {
   const [videos, setVideos] = useState([]);
 
+  //get 6 most relevant videos from youtube
   const fetchVideos = async () => {
     const resp = await fetch(
       "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDkSAq_bDUmT4_XSIFDLsuWIyPdSuZMrlo&part=snippet&maxResults=6&q=" +
@@ -31,7 +32,7 @@ const AnimeVideos = (props) => {
     fetchVideos();
   }, []);
 
-  //create videos thumbnails
+  //create videos thumbnails con info de yt
   const videoThumbs = videos.map((video) => (
     <Box key={video.etag}>
       <Card
@@ -47,6 +48,8 @@ const AnimeVideos = (props) => {
   ));
 
   //set thumbnail cards as modals
+  //itero por los video cards para poder sacar sus propiedades para que el modal funcione
+  //cada thumb es uno de los videos
   const modals = videoThumbs.map((thumb) => {
     const cards = thumb.props.children;
     return (

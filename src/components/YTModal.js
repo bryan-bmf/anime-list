@@ -15,8 +15,6 @@ import { Fragment } from "react";
 const YTModal = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // console.log(props);
-
   //if no trigger, then it's trailer. else video section
   const trigger = props.trigger == undefined ? "here" : props.trigger;
 
