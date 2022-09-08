@@ -11,7 +11,7 @@ const AnimeSummary = (props) => {
   return (
     <Container p='4'>
       <Heading size="lg" mb="2">
-        Summary
+        {props.title}
       </Heading>
       <Text noOfLines={show ? 0 : 5}>{props.summary}</Text>
       <Text
