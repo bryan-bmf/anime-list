@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Link } from "@chakra-ui/react";
+import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import Search from "../Search";
 import Title from "../Title";
 
@@ -24,8 +24,8 @@ const Header = () => {
           <Search width="400px" size="md" color="highlight" category='anime' />
         </Flex>
         <Flex>
-          <Button colorScheme="teal" size="sm" hidden='true'>
-            Button
+          <Button colorScheme="secondary" size="sm">
+            <Text color='secondary'>Button</Text>
           </Button>
         </Flex>
       </Flex>

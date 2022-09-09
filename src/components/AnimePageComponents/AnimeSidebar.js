@@ -17,6 +17,7 @@ const AnimeSidebar = (props) => {
   // get genres from the props
   propsObj.genres.map((genre) => (genres = genres + ", " + genre.name));
 
+  let to = props.anime.aired.to === null ? " Present" : props.anime.aired.to.substring(0, 4)
   
 
   return (
@@ -36,8 +37,8 @@ const AnimeSidebar = (props) => {
           <b>Status:</b> {props.anime.status}
         </ListItem>
         <ListItem>
-          <b>Aired:</b> {props.anime.aired.from.substring(0, 4)} -
-          {props.anime.aired.to.substring(0, 4)}
+          <b>Aired:</b> {props.anime.aired.from.substring(0, 4)} - 
+          {to}
         </ListItem>
         <ListItem>
           <b>Rating:</b> {props.anime.score}
