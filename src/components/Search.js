@@ -9,6 +9,8 @@ const Search = (props) => {
   const navigate = useNavigate();
 
   const [searchParams, setSearchParams] = useSearchParams();
+  let cat = searchParams.get("cat");
+
 
   //get which page I'm at
   const page = location.pathname;
@@ -20,15 +22,15 @@ const Search = (props) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (page === "/home") {
+    if (page.startsWith("/searchResults")) {
+      //replace search params
+      setSearchParams({ q: q, cat: cat }, { replace: true });
+    } else {
       // go to search results page passing the search string as a query param
       navigate({
         pathname: "/searchResults",
         search: "?q=" + q + "&cat=" + props.category,
       });
-    } else {
-      //replace search params
-      setSearchParams({ q: q }, { replace: true });
     }
   };
 
@@ -44,10 +46,10 @@ const Search = (props) => {
         focusBorderColor="highlight"
         _focusVisible={{
           outline: "none",
-          borderColor: "highlight"
+          borderColor: "highlight",
         }}
         _hover={{
-          borderColor: "highlight"
+          borderColor: "highlight",
         }}
         onChange={searchOnChangeHandler}
         borderLeftRadius={props.borderRadius}
