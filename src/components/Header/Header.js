@@ -21,10 +21,10 @@ const Header = () => {
           </Link>
         </Flex>
         <Flex justify="flex-end">
-          <Search width="400px" size="md" color="highlight" />
+          <Search width="400px" size="md" color="highlight" category='anime' />
         </Flex>
         <Flex>
-          <Button colorScheme="teal" size="sm">
+          <Button colorScheme="teal" size="sm" hidden='true'>
             Button
           </Button>
         </Flex>

@@ -17,6 +17,8 @@ const AnimeSidebar = (props) => {
   // get genres from the props
   propsObj.genres.map((genre) => (genres = genres + ", " + genre.name));
 
+  
+
   return (
     <Fragment>
       <Center>

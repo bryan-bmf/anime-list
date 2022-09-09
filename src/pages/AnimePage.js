@@ -36,6 +36,7 @@ const AnimePage = () => {
         arr.push(index);
       }
     });
+    //sort by favorites
     arr = arr.sort((a, b) => b.favorites - a.favorites);
     return arr;
   };
@@ -82,9 +83,6 @@ const AnimePage = () => {
       </header>
       <Center>
         <Grid
-          maxH="60em"
-          h="fit-content"
-          templateRows="repeat(4, 1fr)"
           templateColumns="repeat(6, 1fr)"
           gap={4}
           maxWidth="80em"
@@ -102,7 +100,7 @@ const AnimePage = () => {
           </GridItem>
           {/* Summary */}
           <GridItem colSpan={4} bg="tomato" h="fit-content">
-            <AnimeSummary summary={anime.synopsis} />
+            <AnimeSummary title="Summary" summary={anime.synopsis} />
           </GridItem>
           {/* Characters */}
           <GridItem colSpan={4} bg="tomato" h="fit-content">
@@ -110,7 +108,7 @@ const AnimePage = () => {
           </GridItem>
           {/* Videos */}
           <GridItem colSpan={4} bg="tomato" h="fit-content">
-            <AnimeVideos animeTitle={anime.title} />
+            <AnimeVideos animeTitle={anime.title} quantity='6' />
           </GridItem>
         </Grid>
       </Center>
