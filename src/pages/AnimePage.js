@@ -112,7 +112,7 @@ const AnimePage = () => {
           </GridItem>
         </Grid>
       </Center>
-      <Footer as="footer" />
+      <Footer />
     </Fragment>
   );
 };

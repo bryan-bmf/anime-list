@@ -3,6 +3,7 @@ import './App.css';
 import AnimePage from './pages/AnimePage';
 import CharacterPage from './pages/CharacterPage';
 import Homepage from './pages/Homepage';
+import OopsPage from './pages/OopsPage';
 import ResultsPage from './pages/ResultsPage';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/searchResults' element={<ResultsPage />} />
         <Route path='/anime/:id' element={<AnimePage />} />
         <Route path='/character/:id' element={<CharacterPage />} />
+        <Route path='/oops' element={<OopsPage />} />
       </Routes>
     </div>
   );

@@ -93,7 +93,7 @@ const CharacterPage = () => {
           </GridItem>
         </Grid>
       </Center>
-      <Footer as="footer" />
+      <Footer />
     </Fragment>
   );
 };

@@ -6,9 +6,9 @@ import TabbedResults from "../components/TabbedResults";
 const ResultsPage = () => {
   return (
     <Fragment>
-      <Header as="header" />
+      <Header />
       <TabbedResults />
-      <Footer as="footer" />
+      <Footer />
     </Fragment>
   );
 };

@@ -4,7 +4,7 @@ import Title from "../Title";
 
 const Header = () => {
   return (
-    <Box>
+    <Box as="header">
       <Flex
         py={{ base: 2 }}
         px={{ base: 4 }}

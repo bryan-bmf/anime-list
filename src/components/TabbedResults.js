@@ -26,7 +26,7 @@ const TabbedResults = () => {
   };
 
   return (
-    <Flex justify='center'>
+    <Flex justify='center' minH='100vh'>
       <Tabs size="md" onChange={tabChangeHandler} defaultIndex={defaultTab}>
 
         <TabList>
