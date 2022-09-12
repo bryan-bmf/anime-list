@@ -1,11 +1,13 @@
-import { Select, Box, Center, Flex, VStack, HStack } from "@chakra-ui/react";
+import { Select, Box, Center, Flex, VStack, HStack, Button } from "@chakra-ui/react";
 import Search from "../components/Search";
 import { useState, useEffect } from "react";
 import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
   const [gif, setGif] = useState("");
   const [category, setCategory] = useState("anime");
+  const navigate = useNavigate();
 
   // Get gif from giphy for image bg
   const fetchGif = async (q) => {
@@ -72,6 +74,7 @@ const Homepage = () => {
                 />
               </Center>
             </HStack>
+            <Button mt='10' bgColor='primary' onClick={() => navigate({pathname: "/searchResults", search: "?q=&cat=anime"})}>Browse</Button>
           </Box>
         </VStack>
       </Center>

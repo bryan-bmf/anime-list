@@ -1,6 +1,6 @@
-import { Box, Link, Center, Spinner } from "@chakra-ui/react";
+import { Box, Link, Center, Spinner, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Card from "./Card";
 
 const SearchResults = (props) => {
@@ -12,6 +12,8 @@ const SearchResults = (props) => {
   let q = searchParams.get("q"); //get search string from url
   let cat = searchParams.get("cat");
 
+  const navigate = useNavigate();
+
   // ver si puedo hacer un hook para reducir estos calls
   const fetchAnime = async () => {
     const resp = await fetch(
@@ -21,6 +23,10 @@ const SearchResults = (props) => {
     );
 
     if (!resp.ok) {
+      navigate({
+        pathname: "/oops",
+      });
+
       throw new Error("Algo explotó");
     }
 
@@ -37,6 +43,10 @@ const SearchResults = (props) => {
     );
 
     if (!resp.ok) {
+      navigate({
+        pathname: "/oops",
+      });
+
       throw new Error("Algo explotó");
     }
 
@@ -69,8 +79,8 @@ const SearchResults = (props) => {
   ));
 
   let noResults = (
-    <Box>
-      <h1>No results found.</h1>
+    <Box w='14em'>
+      <Text size='xl' textAlign='start'>No results found.</Text>
     </Box>
   );
 
