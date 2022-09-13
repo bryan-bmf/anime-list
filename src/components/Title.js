@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 
 const Title = (props) => {
 
-  const titles = ['ANIME', "アニメ"];
+  const titles = ['ANIME', "アニメ", 'MUÑEQUITOS'];
   const title = titles[Math.floor(Math.random() * titles.length)];
 
   return (
