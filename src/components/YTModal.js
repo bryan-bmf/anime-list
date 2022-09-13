@@ -8,7 +8,6 @@ import {
   useDisclosure,
   Link,
   AspectRatio,
-  Circle,
 } from "@chakra-ui/react";
 import { Fragment } from "react";
 
@@ -16,7 +15,7 @@ const YTModal = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //if no trigger, then it's trailer. else video section
-  const trigger = props.trigger == undefined ? "here" : props.trigger;
+  const trigger = props.trigger === undefined ? "here" : props.trigger;
 
   return (
     <Fragment>

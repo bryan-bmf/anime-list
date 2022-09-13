@@ -3,7 +3,6 @@ import {
   Divider,
   Heading,
   Image,
-  Link,
   List,
   ListItem,
 } from "@chakra-ui/react";
