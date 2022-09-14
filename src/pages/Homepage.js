@@ -1,4 +1,12 @@
-import { Select, Box, Center, Flex, VStack, HStack, Button } from "@chakra-ui/react";
+import {
+  Select,
+  Box,
+  Center,
+  Flex,
+  VStack,
+  HStack,
+  Button,
+} from "@chakra-ui/react";
 import Search from "../components/Search";
 import { useState, useEffect } from "react";
 import Title from "../components/Title";
@@ -12,7 +20,13 @@ const Homepage = () => {
   // Get gif from giphy for image bg
   const fetchGif = async (q) => {
     const resp = await fetch(
-      "https://api.giphy.com/v1/gifs/random?api_key=fMoQ2Ix7Y5q6kyVyt12GJ9ta8TIwSE0d&tag=anime"
+      "https://api.giphy.com/v1/gifs/random?api_key=fMoQ2Ix7Y5q6kyVyt12GJ9ta8TIwSE0d&tag=anime",
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      }
     );
 
     if (!resp.ok) {
@@ -35,6 +49,7 @@ const Homepage = () => {
   return (
     // Alineado centro del centro
     <Flex
+      id="backgroundImage"
       width={"100vw"}
       height={"100vh"}
       alignContent={"center"}
@@ -49,9 +64,10 @@ const Homepage = () => {
           <Title size={[64, 128]} />
           {/* tamaño del width en cada breakpoint */}
           <Box w={[200, 300, 400, 500, 600, 700]}>
-            <HStack w='inherit' spacing="0">
-              <Center w='inherit'>
+            <HStack w="inherit" spacing="0">
+              <Center w="inherit">
                 <Select
+                  data-testid="select"
                   variant="filled"
                   borderColor="highlight"
                   size="lg"
@@ -65,6 +81,7 @@ const Homepage = () => {
                   <option value="character">Character</option>
                 </Select>
                 <Search
+                  
                   category={category}
                   width="100%"
                   size="lg"
@@ -74,7 +91,18 @@ const Homepage = () => {
                 />
               </Center>
             </HStack>
-            <Button mt='10' bgColor='primary' onClick={() => navigate({pathname: "/searchResults", search: "?q=&cat=anime"})}>Browse</Button>
+            <Button
+              mt="10"
+              bgColor="primary"
+              onClick={() =>
+                navigate({
+                  pathname: "/searchResults",
+                  search: "?q=&cat=anime",
+                })
+              }
+            >
+              Browse
+            </Button>
           </Box>
         </VStack>
       </Center>

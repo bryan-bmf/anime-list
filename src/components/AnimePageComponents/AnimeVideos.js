@@ -16,7 +16,7 @@ const AnimeVideos = (props) => {
   //get 6 most relevant videos from youtube
   const fetchVideos = async () => {
     const resp = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDkSAq_bDUmT4_XSIFDLsuWIyPdSuZMrlo&part=snippet&order=relevance&type=video&maxResults=" + props.quantity + "&q=" +
+      "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDkSAq_bDUmT4_XSIFDLsuWIyPdSuZMrlo&part=snippet&order=relevance&type=video&safeSearch=moderate&maxResults=" + props.quantity + "&q=" +
         props.animeTitle
     );
 

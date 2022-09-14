@@ -11,7 +11,6 @@ const Search = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();
   let cat = searchParams.get("cat");
 
-
   //get which page I'm at
   const page = location.pathname;
 
@@ -22,21 +21,26 @@ const Search = (props) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (page.startsWith("/searchResults")) {
-      //replace search params
-      setSearchParams({ q: q, cat: cat }, { replace: true });
+    if (q.length === 0) {
+      return;
     } else {
-      // go to search results page passing the search string as a query param
-      navigate({
-        pathname: "/searchResults",
-        search: "?q=" + q + "&cat=" + props.category,
-      });
+      if (page.startsWith("/searchResults")) {
+        //replace search params
+        setSearchParams({ q: q, cat: cat }, { replace: true });
+      } else {
+        // go to search results page passing the search string as a query param
+        navigate({
+          pathname: "/searchResults",
+          search: "?q=" + q + "&cat=" + props.category,
+        });
+      }
     }
   };
 
   return (
     <form onSubmit={onSubmitHandler}>
       <Input
+        data-testid="searchBar"
         placeholder="Search..."
         w={props.width}
         size={props.size}
