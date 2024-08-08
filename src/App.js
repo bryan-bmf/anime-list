@@ -21,4 +21,5 @@ function App() {
   );
 }
 
+export const URL = "https://us-central1-anime-list-360918.cloudfunctions.net/api";
 export default App;
