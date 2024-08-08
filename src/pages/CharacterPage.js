@@ -1,16 +1,16 @@
-import { Fragment, useEffect, useState } from "react";
-import Header from "../components/Header/Header";
 import {
   Center,
   Grid,
   GridItem,
   Spinner,
 } from "@chakra-ui/react";
-import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
 import AnimeVideos from "../components/AnimePageComponents/AnimeVideos";
-import Footer from "../components/Header/Footer";
 import CharacterSidebar from "../components/CharacterSidebar";
+import Footer from "../components/Header/Footer";
+import Header from "../components/Header/Header";
 
 const CharacterPage = () => {
   const [character, setCharacter] = useState([]);
@@ -21,7 +21,7 @@ const CharacterPage = () => {
   const { id } = useParams();
 
   const fetchCharacterInfo = async () => {
-    const resp = await fetch("https://api.jikan.moe/v4/characters/" + id);
+    const resp = await fetch("https://api.jikan.moe/v4/character/" + id);
 
     if (!resp.ok) {
       throw new Error("Algo explotó");
@@ -34,7 +34,7 @@ const CharacterPage = () => {
 
   const fetchCharacterAnime = async () => {
     const resp = await fetch(
-      "https://api.jikan.moe/v4/characters/" + id + "/anime"
+      "https://api.jikan.moe/v4/character/" + id + "/anime"
     );
 
     if (!resp.ok) {
