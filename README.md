@@ -8,7 +8,7 @@ A web app where users can search for anime series and characters.
 * [Setup](#setup)
 
 ## General info
-Search for any anime or anime character to see general information about it, including YouTube videos related to them. Developed with the help of an MyAnimeList-like API (Jikan API), YouTube, Giphy and hosted in Firebase
+Search for any anime or anime character to see general information about it, including YouTube videos related to them. Developed with the help of an MyAnimeList-like API (Jikan API), YouTube, Giphy, Firebase Cloud Functions and hosted in Firebase.
 	
 ## Technologies
 Project is created with:
