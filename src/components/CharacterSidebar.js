@@ -23,7 +23,7 @@ const CharacterSidebar = (props) => {
     let factValue = fact.substring(index + 1);
 
     return (
-      <ListItem>
+      <ListItem key={Math.random()}>
         <b>{factKey}</b> {factValue}
       </ListItem>
     );

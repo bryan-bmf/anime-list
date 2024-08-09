@@ -21,7 +21,7 @@ const CharacterPage = () => {
   const { id } = useParams();
 
   const fetchCharacterInfo = async () => {
-    const resp = await fetch("https://api.jikan.moe/v4/character/" + id);
+    const resp = await fetch("https://api.jikan.moe/v4/characters/" + id);
 
     if (!resp.ok) {
       throw new Error("Algo explotó");
@@ -34,7 +34,7 @@ const CharacterPage = () => {
 
   const fetchCharacterAnime = async () => {
     const resp = await fetch(
-      "https://api.jikan.moe/v4/character/" + id + "/anime"
+      "https://api.jikan.moe/v4/characters/" + id + "/anime"
     );
 
     if (!resp.ok) {
