@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "firebase": "^10.12.5",
     "framer-motion": "^7.1.1",
@@ -19,6 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "install-functions": "cd functions && npm install",
+    "install-all": "concurrently --kill-others-on-fail \"npm install\" \"npm run install-functions\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
