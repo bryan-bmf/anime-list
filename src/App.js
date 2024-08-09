@@ -14,7 +14,7 @@ function App() {
         <Route path='/home' element={<Homepage />} />
         <Route path='/searchResults' element={<ResultsPage />} />
         <Route path='/anime/:id' element={<AnimePage />} />
-        <Route path='/character/:id' element={<CharacterPage />} />
+        <Route path='/characters/:id' element={<CharacterPage />} />
         <Route path='/oops' element={<OopsPage />} />
       </Routes>
     </div>
