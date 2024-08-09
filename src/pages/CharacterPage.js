@@ -1,16 +1,16 @@
-import { Fragment, useEffect, useState } from "react";
-import Header from "../components/Header/Header";
 import {
   Center,
   Grid,
   GridItem,
   Spinner,
 } from "@chakra-ui/react";
-import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
+import { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AnimeSummary from "../components/AnimePageComponents/AnimeSummary";
 import AnimeVideos from "../components/AnimePageComponents/AnimeVideos";
-import Footer from "../components/Header/Footer";
 import CharacterSidebar from "../components/CharacterSidebar";
+import Footer from "../components/Header/Footer";
+import Header from "../components/Header/Header";
 
 const CharacterPage = () => {
   const [character, setCharacter] = useState([]);
