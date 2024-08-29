@@ -4,7 +4,7 @@ import Card from "../Card";
 const AnimeCharacters = (props) => {
   let characters = props.characters.map((character) => (
     <Box key={character.character.mal_id}>
-      <Link href={"/character/" + character.character.mal_id}>
+      <Link href={"/characters/" + character.character.mal_id}>
         <Card
           key={character.character.mal_id}
           characterName={character.character.name}
